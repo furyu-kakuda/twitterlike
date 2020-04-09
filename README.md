@@ -3,6 +3,7 @@
 ----|---- 
 | Scala| 2.11.4 |
 | Play Framework| 2.4.0 |
+| MySQL | 8.0.19 |
 | sbt | 0.13.8 |
 | Node.js| 12.14.1 |
 | Vue.js| 2.6.11 |
