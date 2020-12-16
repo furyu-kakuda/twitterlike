@@ -5,27 +5,33 @@ const resolve = (dir) => {
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
-    entry: "./src/main.ts",
+    entry: {'hoge': './src/main.ts'},
     output: {
-        path: resolve("target/web/public/main/javascripts"),
+        path: resolve("public/javascripts"),
         publicPath: '/assets/javascripts/',
-        filename: "main.min.js"
+        filename: '[name]-[hash].bundle.js'
     },
     plugins: [
         new VueLoaderPlugin(),
+        new BundleAnalyzerPlugin({
+            "analyzerMode": "static",
+            "openAnalyzer": false
+        }),
         new HtmlWebpackPlugin({
             filename: '../conf/build/hoge.ssp',
             template: '../conf/views/index.ssp',
-            inject: 'body',
-            minify: true
+            inject: true,
+            chunks:['hoge']
         })
     ],
     resolve: {
         alias: {
             "@": resolve('src')
-        }
+        },
+        extensions: [".js",".ts",".vue"]
     },
     module: {
         rules: [

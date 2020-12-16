@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { Tweet, TweetApiResponse } from '../model/Tweet.js';
+import { Tweet, TweetApiResponse } from '../model/Tweet';
 import { reactive, toRefs } from '@vue/composition-api';
 
 export const useTweet = (): any => {
-  const state = reactive<{ tweets: Array<Tweet> }>({
+  const state = reactive<{ tweets: Tweet[] }>({
     tweets: [],
   });
 

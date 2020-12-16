@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mx-auto px-4 py-4">
     <div class="flex justify-center">
       <div id="form" class="w-3/5 flex">
         <textarea
@@ -68,7 +68,6 @@
 </template>
 
 <script lang="ts">
-import moment from 'moment';
 import {
   defineComponent,
   reactive,
@@ -77,7 +76,8 @@ import {
   Ref,
 } from '@vue/composition-api';
 import { UnwrapRef } from '@vue/composition-api/dist/reactivity';
-import { useTweet } from '../js/useTweet.ts';
+import { useTweet } from '../js/tweet';
+import { format } from '../js/dateUtil';
 
 export default defineComponent({
   setup() {
@@ -99,11 +99,8 @@ export default defineComponent({
 
     const getTweet = async (): Promise<void> =>
       await tweetModel.getTweet(state.pageNumber);
-    getTweet();
 
-    const format = (dayWithNotFormated: number): string => {
-      return moment(dayWithNotFormated).format('MM/DD HH:mm');
-    };
+    getTweet();
 
     const post = async (): Promise<void> => {
       await tweetModel

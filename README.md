@@ -15,4 +15,4 @@
 `docker run --volumes-from mysql_data --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d -p 3306:3306 mysql`
 
 ## フロントBundle化+sbt起動
-`./run.sh`
+`sbt runWithFrontBuild`
