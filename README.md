@@ -16,3 +16,6 @@
 
 ## フロントBundle化+sbt起動
 `./run.sh`
+
+## sbtタスクを実装してるブランチ
+`feature/add_abt_custom_task` 
